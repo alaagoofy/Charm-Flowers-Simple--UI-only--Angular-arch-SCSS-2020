@@ -1,0 +1,200 @@
+//------------------------------------------------SHOP INFO AND ICONS
+.shop-info {
+margin-top: 5rem;
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  font-size: 1.2rem;
+  gap: 5rem;
+  
+  svg {
+    width: 4rem;
+    height: 4rem;
+  }
+  &__delivery {
+    @include center-el;
+    flex-direction: column;
+  }
+
+  &__shipped {
+    @include center-el;
+    flex-direction: column;
+  }
+
+  &__payment {
+    text-align: center;
+
+    svg {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+//------------------------------------------------Main Contact Section in footer
+.main-contact {
+  grid-column: full-start / full-end;
+  overflow: hidden;
+  margin-top: 2.5rem;
+  @include grid;
+  gap: 0;
+
+  @include responsive(phone) {
+    grid-template-columns: 1fr;
+  }
+
+  //------------------------------------------------Contact Info (Left Side)
+  &__info {
+    grid-column: full-start / col-end 4;
+    background-color: $color-primary;
+    padding: 9rem 0 5rem;
+    color: $white;
+    @include grid;
+    @include responsive(phone) {
+      grid-column: full-start / full-end;
+    }
+
+    &:hover + img {
+      opacity: 1;
+    }
+
+    &__btn {
+      grid-column: col-start 3 / col-end 8;
+      justify-self: start;
+    }
+
+    &__phone {
+      grid-column: col-start 3 / col-end 8;
+      font-size: 2.5rem;
+    }
+
+    &__time {
+      grid-column: col-start 3 / col-end 8;
+      display: flex;
+      font-weight: 300;
+      font-size: 1.4rem;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba($white, 10%);
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+      }
+    }
+
+    &__location {
+      grid-column: col-start 3 / col-end 8;
+      display: flex;
+      font-weight: 300;
+      font-size: 1.4rem;
+      align-items: center;
+      svg {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+      }
+    }
+
+    &__social {
+      grid-column: col-start 3 / col-end 8;
+      margin-top: 2rem;
+
+      svg {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+
+  //------------------------------------------------Big Image (Right Side)
+  &__image {
+    grid-column: col-start 5 / full-end;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in;
+    @include responsive(phone) {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+//------------------------------------------------FOOTER SECTION
+.footer {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem;
+  padding: 5rem 0;
+
+  &__about {
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    gap: 0;
+
+    &__head {
+      grid-row: 1/2;
+      grid-column: 1/ -1;
+    }
+
+    &__nav {
+      list-style: none;
+
+      a {
+        font-size: 1.2rem;
+        color: $color-gray;
+        display: block;
+        padding: 0.5rem 0;
+      }
+      &--1 {
+        grid-row: 2/3;
+        grid-column: 1/ 2;
+      }
+
+      &--2 {
+        grid-row: 2/3;
+        grid-column: 2/ 3;
+      }
+    }
+  }
+
+  &__insta {
+    &__images {
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(min-content, max-content));
+      gap: 2rem;
+      align-items: end;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+//------------------------------------------------Copyright
+.copyright {
+  grid-column: full-start / full-end;
+  background-color: $color-gray-lighter;
+  padding: 2rem 0;
+
+  span {
+    color: $color-primary;
+  }
+}

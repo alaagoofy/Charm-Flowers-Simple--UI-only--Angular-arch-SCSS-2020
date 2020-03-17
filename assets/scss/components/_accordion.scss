@@ -1,0 +1,61 @@
+//-------------------------------------------------- Accordion styles 
+.tabs {
+ 
+  
+  &__tab {
+    position: relative;
+  }
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7em 0;
+    align-items: center;
+    color: $color-gray;
+    font-size: 1.5rem;
+    border-bottom: 1px solid $color-gray-light;
+    cursor: pointer;
+    /* Icon */
+    &:hover {
+     color: $color-primary;
+     
+    }
+    &::after {
+      content: "\276F";
+      text-align: center;
+      transition: all 0.35s;
+     
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    padding:0;
+    color: $color-gray;
+    transition: all 0.35s;
+    transform-origin: center;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  //------------------------------------------------checked
+  &__checkbox:checked ~ &__title {
+    color: $color-primary;
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__checkbox:checked ~ &__content  {
+    max-height: 100vh;
+    padding:1rem 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
