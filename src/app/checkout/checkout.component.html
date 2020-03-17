@@ -1,0 +1,277 @@
+<div class="container">
+  <!------------------------------------------------TITLE & SEARCH & BREADCRUMB-->
+  <app-inner-header class="inner-header"></app-inner-header>
+
+  <div class="checkout">
+    <div class="checkout__secure">
+      <svg>
+        <use xlink:href="/assets/images/sprite.svg#icon-secure"></use>
+      </svg>
+      <strong>Secure Checkout</strong>
+    </div>
+    <div class="checkout__tabs">
+      <a href="#" class="checkout__tabs-tab active">Ship To Someone</a>
+      <a href="#" class="checkout__tabs-tab">Ship To Me</a>
+    </div>
+    <!-----------------------------------Recipient Details-->
+    <div class="checkout__form">
+      <div class="checkout__form__recipient">
+        <h6 class="head-6">
+          Recipient Details
+        </h6>
+
+        <form action="" class="form form-two-input">
+          <div class="form__group">
+            <input type="text" placeholder="Recipient Name" class="form__input">
+            <label for="ballon" class="form__label required">Recipient Name</label>
+          </div>
+
+          <div class="form__group">
+            <input type="text" placeholder="Recipient Mobile Number" class="form__input">
+            <label for="ballon" class="form__label">Recipient Mobile Number</label>
+          </div>
+        </form>
+      </div>
+      <!-----------------------------------Shipping Details-->
+      <div class="checkout__form__shipping-details">
+        <h6 class="head-6">
+          shipping details
+        </h6>
+        <form action="" class="form">
+          <div class="form__group">
+
+            <label for="ballon" class="form__label required">Area</label>
+            <select name="" id="" class="form__dropdown">
+              <option value="" selected="selected">Select an Area…</option>
+              <option value="New Cairo">New Cairo</option>
+              <option value="Nasr City">Nasr City</option>
+              <option value="Heliopolis">Heliopolis</option>
+              <option value="Maadi">Maadi</option>
+              <option value="Zamalek">Zamalek</option>
+              <option value="Dokki">Dokki</option>
+              <option value="Downtown">Downtown</option>
+              <option value="Mohandseen">Mohandseen</option>
+              <option value="6th of October">6th of October</option>
+              <option value="El Haram">El Haram</option>
+              <option value="Shorouk">Shorouk</option>
+              <option value="Madinaty">Madinaty</option>
+              <option value="El Rehab">El Rehab</option>
+              <option value="Zahraa Al Maadi">Zahraa Al Maadi</option>
+              <option value="Garden City">Garden City</option>
+              <option value="Al Agouza">Al Agouza</option>
+              <option value="Abo Rawash">Abo Rawash</option>
+              <option value="Cairo Airport">Cairo Airport</option>
+              <option value="El Obour">El Obour</option>
+              <option value="Shoubra Masr">Shoubra Masr</option>
+              <option value="Hadayek El Ahram">Hadayek El Ahram</option>
+              <option value="El Manial">El Manial</option>
+              <option value="Mokattam">Mokattam</option>
+            </select>
+          </div>
+          <div class="form-three-input">
+            <div class="form__group">
+              <input type="text" placeholder="Address" class="form__input">
+              <label for="ballon" class="form__label">Address</label>
+            </div>
+            <div class="form__group">
+              <input type="text" placeholder="Apartment No" class="form__input">
+              <label for="ballon" class="form__label">Apartment No</label>
+            </div>
+            <div class="form__group">
+              <input type="text" placeholder="Floor " class="form__input">
+              <label for="ballon" class="form__label">Floor </label>
+            </div>
+          </div>
+          <div class="form__group">
+            <textarea  placeholder="Greeting Card Message  " cols="30" rows="10" class="form__input"></textarea>
+            <label for="ballon" class="form__label">Greeting Card Message  </label>
+          </div>
+        </form>
+
+      </div>
+<!-----------------------------------Billing Details-->
+      <div class="checkout__form__billing">
+        <h6 class="head-6">
+          Billing Details
+        </h6>
+
+        <form action="" class="form form-two-input">
+          <div class="form__group">
+            <input type="text" placeholder="First Name" class="form__input">
+            <label for="ballon" class="form__label required">First Name</label>
+          </div>
+
+          <div class="form__group">
+            <input type="text" placeholder="Last Name" class="form__input">
+            <label for="ballon" class="form__label">Last Name</label>
+          </div>
+
+          <div class="form__group">
+            <input type="text" placeholder="Email Address" class="form__input">
+            <label for="ballon" class="form__label required">Email Address</label>
+          </div>
+
+          <div class="form__group">
+            <input type="text" placeholder="Phone" class="form__input">
+            <label for="ballon" class="form__label">Phone</label>
+          </div>
+        </form>
+      </div>
+
+<!-----------------------------------Payment Details-->
+      <div class="checkout__form__payment">
+        <h6 class="head-6">
+          Payment Details
+        </h6>
+        <form action="" class="form form-payment">
+
+
+<div class="form-two-input">
+  <div class="form__group">
+    <div class="form__checkbox">
+        <input type="radio" id="visa" class="form__checkbox-input" name="date" checked>
+        <label for="visa" class="form__checkbox-label">
+            <span class="form__checkbox-btn form__checkbox-btn--radio"></span>
+            <svg class="form__checkbox-label__icon">
+              <use xlink:href="/assets/images/sprite.svg#icon-mastercard"></use>
+            </svg>
+            <svg class="form__checkbox-label__icon">
+              <use xlink:href="/assets/images/sprite.svg#icon-visa"></use>
+            </svg>
+        </label>
+    </div>
+</div>
+
+<div class="form__group">
+  <div class="form__checkbox">
+      <input type="radio" id="cash" class="form__checkbox-input" name="date">
+      <label for="cash" class="form__checkbox-label">
+          <span class="form__checkbox-btn form__checkbox-btn--radio"></span>
+         
+          cash on delivery
+      </label>
+  </div>
+</div>
+</div>
+
+          <div class="form__group">
+            <input type="text" placeholder="CARDHOLDER NAME" class="form__input">
+            <label for="ballon" class="form__label required">CARDHOLDER NAME</label>
+          </div>
+
+          <div class="form__group">
+            <input type="text" placeholder="CARD NUMBER" class="form__input">
+            <label for="ballon" class="form__label required">CARD NUMBER</label>
+          </div>
+
+          <div class="form-three-input form-three-input--small">
+            <div class="form__group">
+              <label for="ballon" class="form__label required">EXPIRATION DATE</label>
+              <select name="" id="" class="form__dropdown">
+                <option>Month</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label for="ballon" class="form__label required">&nbsp;</label>
+              <select name="" id="" class="form__dropdown">
+                <option>year</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label for="ballon" class="form__label required">&nbsp;</label>
+              <input type="text" placeholder="CVV" class="form__input">
+              <label for="ballon" class="form__label required">CVV</label>
+            </div>
+          </div>
+
+          
+        </form>
+      </div>
+
+       <!------------------------------------------------BUTTON BUY NOW-->
+ 
+    <div class="btns">
+      <a routerLink="/checkout" class="btn btn__icon btn__icon--black">
+        <span class="btn__icon-box">
+          <svg class="btn__icon-box-icon">
+            <use xlink:href="/assets/images/sprite.svg#icon-buy"></use>
+          </svg>
+        </span>
+        <span class="btn__icon-text"> COMPLETE PURCHASE</span>
+      </a>
+    </div>
+    </div>
+
+    <!-----------------------------------Checkout CART-->
+    <div class="checkout__bag">
+      <h4 class="head-4 checkout__bag__title">
+        Shopping Cart <br />
+        <small>You Have 1 Item In Your Cart</small>
+      </h4>
+
+      <!-----------------------------------Items-->
+      <div class="checkout__bag__items">
+        <!-----------------------ITEM-->
+        <div class="checkout__bag__item">
+          <!-----------Image-->
+          <img src="/assets/images/flower1.jpg" alt="" class="checkout__bag__item-image" />
+          <!-----------Title-->
+          <a class="checkout__bag__item-title">
+            Product Name
+            <small> 200.00EGP</small>
+          </a>
+
+          <!-----------Quantity-->
+          <div class="checkout__bag__item__quantity">
+            <div class="checkout__bag__item__quantity__btns">
+              <a href="#" class="checkout__bag__item__quantity__btns--min opacity"></a>
+              <input type="text" value="1" class="checkout__bag__item__quantity__input" />
+              <a href="#" class="checkout__bag__item__quantity__btns--plus"></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="checkout__bag__item">
+          <!-----------Image-->
+          <img src="/assets/images/flower1.jpg" alt="" class="checkout__bag__item-image" />
+          <!-----------Title-->
+          <a class="checkout__bag__item-title">
+            Product Name
+            <small> 200.00EGP</small>
+          </a>
+
+          <!-----------Quantity-->
+          <div class="checkout__bag__item__quantity">
+            <div class="checkout__bag__item__quantity__btns">
+              <a href="#" class="checkout__bag__item__quantity__btns--min opacity"></a>
+              <input type="text" value="1" class="checkout__bag__item__quantity__input" />
+              <a href="#" class="checkout__bag__item__quantity__btns--plus"></a>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!-----------------------------------Sub Total-->
+      <div class="checkout__bag__sub-total">
+        <span class="checkout__bag__sub-total-text">SubTotal</span>
+        <strong class="checkout__bag__sub-total-price">200.00EGP</strong>
+
+      </div>
+      <div class="checkout__bag__sub-total">
+        <span class="checkout__bag__sub-total-text">Shipping</span>
+        <strong class="checkout__bag__sub-total-price">--</strong>
+        <p class="small-text checkout__bag__sub-total-info">Shipping Will Depends on the area you will select</p>
+      </div>
+      <div class="checkout__bag__total">
+        <span class="checkout__bag__sub-total-text">Total</span>
+        <strong class="checkout__bag__total-price">200.00EGP</strong>
+
+      </div>
+    
+    </div>
+  </div>
+</div>

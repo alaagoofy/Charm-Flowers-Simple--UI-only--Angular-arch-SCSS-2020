@@ -1,0 +1,289 @@
+//---------------------------------------Admin's notification messages for users (top header)
+.notification-msg {
+  background-color: $color-gray-dark;
+  grid-column: full-start / full-end;
+  position: fixed;
+  height: 3.5rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  p {
+    text-align: center;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+  }
+}
+
+//-----------------------------------------HEADER
+.header {
+  position: fixed;
+  height: 7rem;
+  width: 100%;
+  top: 3.5rem;
+  left: 0;
+  z-index: 100;
+  background-color: $white;
+  box-shadow: 0 0.3rem 0.6rem rgba($black, 15%);
+  @include main-grid;
+
+  &__container {
+    grid-column: center-start / center-end;
+
+    display: grid;
+    grid-template-rows: 7rem;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    @include responsive(tab-port) {
+      grid-column: full-start / full-end;
+      padding: 0 6rem 0 2rem;
+      grid-template-columns: minmax(min-content, max-content) 1fr;
+    }
+  }
+
+  //-----------------------------------------LOGO
+  &__logo {
+    align-self: center;
+    &-image {
+      height: 4rem;
+      @include responsive(phone) {
+        height: 3.5rem;
+      }
+    }
+  }
+
+  //-----------------------------------------Header Right Side
+  &__right-side {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(4, minmax(min-content, max-content));
+    align-items: center;
+    justify-content: end;
+    gap: 2.5rem;
+    @include responsive (phone) {
+      gap: 1.5rem;
+    }
+    //-----------------------------------------AVATAR
+    .profile {
+      position: relative;
+      font-size: 1.3rem;
+      @include center-el;
+      &__avatar {
+        height: 3.5rem;
+        border-radius: 50%;
+      }
+
+      //-----------------------------------------AVATAR Drop Down Menu
+      &__drop-down {
+        transition: all 1s ease-in;
+        @include center-el;
+
+        //--------------------BURGER CHARTS
+        &__burger {
+          width: 2.2rem;
+          height: 2.2rem;
+          border-radius: 50%;
+          background-color: $white;
+          box-shadow: 0 0.3rem 0.6rem rgba($black, 20%);
+          margin: 1.7rem 0 0 -0.9rem;
+          z-index: 5;
+          @include center-el;
+
+          i {
+            height: 1px;
+            width: 1rem;
+            background-color: $color-gray-light;
+            position: relative;
+
+            &::before,
+            &::after {
+              @include after-before;
+              background-color: $color-gray-light;
+            }
+
+            &::after {
+              top: 0.3rem;
+            }
+            &::before {
+              top: -0.3rem;
+            }
+          }
+        }
+        &:hover i::after {
+          top: 0.4rem;
+        }
+
+        &:hover i::before {
+          top: -0.4rem;
+        }
+      }
+    }
+    //-------------------------------------Search area
+    .search {
+      svg {
+        width: 1.7rem;
+        height: 1.7rem;
+        fill: $color-gray;
+      }
+    }
+
+    //---------------------------------Favorite Link
+    .fav {
+      justify-self: end;
+      transition: all 0.3s ease-in-out;
+      svg {
+        width: 1.7rem;
+        height: 1.7rem;
+        fill: $color-gray;
+      }
+
+      &hover svg {
+        width: 1.7rem;
+        height: 1.7rem;
+        fill: $color-primary;
+      }
+      @include responsive(tab-port) {
+        display: none;
+      }
+    }
+    //-----------------------------------Cart Section
+    .cart {
+      position: relative;
+      justify-self: end;
+      padding-right: 1rem;
+      &__number {
+        position: absolute;
+        top: -1.1rem;
+        right: 0;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 2rem;
+        border-radius: 50%;
+        background-color: $color-gray-light;
+        color: $white;
+        box-shadow: $shadow;
+        &.active {
+          background-color: $white;
+          color: $color-primary;
+        }
+      }
+
+      &__icon {
+        @include center-el;
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: $color-primary;
+        box-shadow: $shadow;
+        border-radius: 0.5rem;
+        svg {
+          width: 2rem;
+          height: 2rem;
+          fill: $white;
+        }
+      }
+    }
+    //---------------------------------------------------CART DROP DOWN
+    .drop-down-cart {
+      position: absolute;
+      top: 3.2rem;
+      right: -100%;
+      min-width: 25rem;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+      transform: translateX(5rem);
+      box-shadow: $shadow;
+      border-top: 0.5rem solid $color-gray-dark;
+      background-color: $white;
+      text-transform: uppercase;
+      z-index: 101;
+
+      &__empty {
+        @include center-el;
+        color: $color-gray-light;
+        font-size: 1.3rem;
+        padding: 3rem 1.5rem;
+        display: none;
+        svg {
+          width: 2rem;
+          height: 2rem;
+          fill: $color-gray-light;
+        }
+      }
+
+      &__items {
+        &-total {
+          border-bottom: 1px solid $color-gray-lighter;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          font-size: 1.2rem;
+          padding: 1rem ;
+          &--text {
+            justify-self: start;
+            color: $color-gray;
+          }
+          &--price {
+            justify-self: end;
+            font-size: 1.4rem;
+            color: $color-dark;
+            font-weight: 400;
+          }
+        }
+
+        &__item {
+          padding: 0.5rem 1rem;
+          display: grid;
+          grid-template-columns: min-content 1fr min-content;
+          align-items: center;
+          gap: 1rem;
+          border-bottom: 1px solid $color-gray-lighter;
+          &-image {
+            width: 5rem;
+            height: 5rem;
+          }
+
+          &-info {
+            &--title {
+              a {
+                font-size: 1.3rem;
+                color: $color-gray;
+              }
+             
+            }
+
+            &--price {
+              color: $color-primary;
+              font-size: 1.2rem;
+            }
+          }
+
+          &-delete {
+            @include center-el;
+            background-color: $white;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            box-shadow: $shadow;
+            justify-self: end;
+          }
+        }
+
+        .btn {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    div:hover > .drop-down-cart {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

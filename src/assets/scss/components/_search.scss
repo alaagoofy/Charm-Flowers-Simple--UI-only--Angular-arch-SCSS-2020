@@ -1,0 +1,106 @@
+//-----------------------------------Search Popup
+
+.search-popup {
+  position: fixed;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba($black, 80%);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+  }
+  //-----------------------------------TEXT INPUT
+
+  .form__group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%);
+  }
+
+  &__input {
+    padding: 1rem 0;
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: $white;
+    border: none;
+    border-bottom: 1px solid $white;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    transition: all 0.8s;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $color-gray;
+    }
+    &:focus:invalid {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid red;
+    }
+
+    &::-webkit-input-placeholder {
+      text-transform: uppercase;
+      color: $color-gray-light;
+    }
+  }
+
+  //------Input Label
+  &__label {
+    display: block;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    color: $white;
+  }
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    fill: $white;
+  }
+  //------input Label Hidden if Placeholder shown
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__close {
+    position: absolute;
+    right: 8rem;
+    top: 8rem;
+    width: 4rem;
+    height: 1px;
+    background-color: $white;
+    transform: rotate(45deg);
+    display: block;
+    &::after {
+      @include after-before;
+      display: block;
+      background-color: $white;
+      transform: rotate(90deg);
+    }
+  }
+}

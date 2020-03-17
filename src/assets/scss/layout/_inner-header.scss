@@ -1,0 +1,56 @@
+.inner-header {
+  grid-column: full-start / full-end;
+  padding: 12rem 0 1rem;
+  margin-bottom: 3rem;
+  @include grid;
+  gap: 0;
+  grid-template-rows: repeat(2, min-content);
+  align-items: center;
+  border-bottom: 1px solid $color-gray-lighter;
+
+  &__title {
+    grid-column: center-start / col-end 4;
+    grid-row: 1 / 2;
+    font-weight: 300;
+    @include responsive (tab-port) {
+      grid-column: center-start / center-end;
+    }
+  }
+
+  &__breadcrumb {
+    grid-row: 1/2;
+    grid-column: col-start 4 / center-end;
+    justify-self: end;
+    //-----------------------------------Responsive
+    @include responsive (tab-port) {
+      grid-column: center-start / center-end;
+      grid-row: 2/3;
+      justify-self: start;
+    }
+    &__list {
+      list-style: none;
+      display: flex;
+    }
+
+    &__item:not(:last-child)::after {
+      display: inline;
+      content: "/";
+      padding: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    &__link {
+      color: $color-gray-dark;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-primary;
+      }
+      
+      &.active {
+        color: $color-gray-light;
+      }
+    }
+  }
+}

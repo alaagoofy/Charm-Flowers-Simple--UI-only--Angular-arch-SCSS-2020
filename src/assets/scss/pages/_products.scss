@@ -1,0 +1,131 @@
+//------------------------------------------------Products Filter (Right Side)
+.products-filter {
+  grid-column: center-start / col-end 2;
+  padding-right: 4rem;
+  transition: all 0.4s;
+  //------------------------------------------------Filter Color
+  &__colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  &__color {
+    position: relative;
+    &__checkbox {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    &__bg {
+      display: block;
+      padding: 2rem;
+      background-color: yellowgreen;
+      box-shadow: $shadow;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__checkbox:checked ~ &__bg {
+      transform: scale(1.1);
+      box-shadow: 0 0.3rem 0.5rem rgb($black, 50%);
+      border: 1px solid rgba(aqua, 50%);
+    }
+  }
+
+  //------------------------------------------------Responsive Filter Button
+  &__responsive-link {
+    position: fixed;
+    transform: translateX(-65vw);
+    top: 80%;
+    right: 0;
+    width: 5rem;
+    height: 5rem;
+    box-shadow: -0.4rem 0.4rem 0.7rem rgba($black, 35%);
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-color: $white;
+    z-index: 1000;
+    cursor: pointer;
+    @include center-el;
+    opacity: 0;
+    visibility: hidden;
+    @include responsive(phone) {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    svg {
+      fill: $color-dark;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  //------------------------------------------------Responsive Design
+  @include responsive(phone) {
+    padding: 13rem 2rem 0;
+    width: 65vw;
+    background-color: $white;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    right: 0;
+    box-shadow: -0.3rem -0.3rem 0.6rem rgba($black, 15%);
+    transform: translateX(100%);
+    z-index: 99;
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+    &:hover {
+      transform: translateX(0);
+    }
+  }
+}
+
+//------------------------------------------------Products Grid Container
+.products-grid {
+  grid-column: col-start 3 / center-end;
+  @include main-grid;
+  @include responsive(phone) {
+    grid-column: center-start / center-end;
+  }
+
+  //------------------------------------------------Sort By Drop Down
+  &__sort {
+    grid-column: col-start 6 / full-end;
+    position: relative;
+    justify-self: end;
+
+    &-link {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: $color-gray;
+    }
+
+    &-icon {
+      width: 1.7rem;
+      height: 1.6rem;
+      fill: $color-gray;
+    }
+  }
+
+  .drop-down {
+    top: 2rem;
+    right: 0;
+    left: auto;
+  }
+  .products {
+    grid-column: full-start / full-end;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+  }
+}

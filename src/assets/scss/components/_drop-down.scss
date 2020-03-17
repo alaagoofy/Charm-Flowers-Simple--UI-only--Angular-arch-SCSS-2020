@@ -1,0 +1,50 @@
+//---------------------------------------------------DROP DOWN MENU
+
+.drop-down {
+  position: absolute;
+  top: 4rem;
+  left: -100%;
+  min-width: 17rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  transform: translateX(5rem);
+  &__menu {
+    list-style: none;
+    background-color: $white;
+    box-shadow: $shadow;
+    border-bottom: 0.5rem solid $color-gray-dark;
+  }
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $color-gray-lighter;
+    background-image: linear-gradient(120deg, transparent 0, transparent 50%, $color-primary 50%);
+    background-size: 220%;
+    color: $color-gray;
+    transition: all 0.5s ease-in-out;
+    font-size: 1.4rem;
+  }
+
+  &__link:hover,
+  &__link:active {
+    background-position: 100%;
+    color: $white;
+    transform: translateX(0.5rem);
+    box-shadow: 0 0.6rem 0.7rem rgba($black, 15%);
+    border: none;
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+div:hover > .drop-down {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+

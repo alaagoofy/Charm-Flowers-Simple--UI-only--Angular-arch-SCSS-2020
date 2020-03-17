@@ -1,0 +1,170 @@
+//---------------------------------------------Cart Page
+
+.section-cart {
+  grid-column: center-start / center-end;
+
+  &__btns {
+  }
+
+  //---------------------------------------------Cart Items
+  &__items-grid {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr repeat(4, minmax(min-content, 1fr));
+    gap: 3rem;
+    align-items: start;
+
+    @include responsive (tab-port) {
+        grid-template-columns:repeat(5, minmax(min-content, 1fr));
+    }
+    @include responsive (phone) {
+        grid-template-columns:repeat(3, minmax(min-content, 1fr));
+    }
+    //---------------------------------------------Header
+    &--header {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: $color-gray;
+      padding: 1rem 0;
+      border-bottom: 1px solid $color-gray-light;
+    }
+
+    //---------------------------------------------Body
+    &--body {
+      padding: 1rem 0 0;
+      font-size: 1.4rem;
+    }
+
+    //---------------------------------------------Item Image
+    &__item {
+      &-img {
+        height: 7rem;
+        border-radius: 0.5rem;
+        box-shadow: $shadow;
+      }
+    }
+    //---------------------------------------------Item Desc
+    &__des {
+        @include responsive (tab-port) {
+           display: none;
+        }
+    }
+
+    //---------------------------------------------Item Color
+    &__color {
+        @include responsive (tab-port) {
+            display: block;
+         }
+         @include responsive (phone) {
+            display: none;
+         }
+    }
+
+    //---------------------------------------------Item Size
+    &__size {
+        @include responsive (tab-port) {
+            display: block;
+         }
+         @include responsive (phone) {
+            display: none;
+         }
+    }
+
+    //---------------------------------------------Item Quantity
+    &__quantity {
+      &__btns {
+        background-color: $white;
+        width: 10rem;
+        height: 4rem;
+        @include center-el;
+        position: relative;
+        @include responsive (tab-port) {
+            width: 7rem;
+        }
+        &--min,
+        &--plus {
+          width: 3rem;
+          height: 4rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          &::before {
+            @include after-before;
+            width: 1.2rem;
+            height: 1.5px;
+            top: 2rem;
+            left: 1rem;
+            background-color: $color-gray;
+          }
+        }
+
+        &--plus {
+          right: 0;
+          left: auto;
+          &::before {
+            right: 1rem;
+            left: auto;
+          }
+          &::after {
+            @include after-before;
+            width: 1.2rem;
+            height: 1.5px;
+            top: 2rem;
+            left: 0.8rem;
+            background-color: $color-gray;
+            transform: rotate(90deg);
+           
+          }
+        }
+      }
+      &__input {
+        border: 1px solid $color-gray-light;
+        background-color: $white;
+        height: 4rem;
+        text-align: center;
+        width: 10rem;
+        -webkit-appearance: none;
+        transition: all 0.8s;
+        @include responsive (tab-port) {
+            width: 7rem;
+        }
+        //-----------------------------------Clear Broser History Background
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid $color-gray;
+        }
+
+        //-----------------------------------Invalid Input
+        &:focus:invalid {
+          outline: none;
+          border: none;
+          border-bottom: 1px solid red;
+        }
+      }
+    }
+
+    //---------------------------------------------Item Price
+    &__unit-price {
+      justify-self: end;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    //---------------------------------------------Item Footer Buttons
+    &__footer {
+      border-bottom: 1px solid $color-gray-light;
+      padding-bottom: 2rem;
+    }
+  }
+
+  //---------------------------------------------Total Price
+  &__prices {
+  }
+}

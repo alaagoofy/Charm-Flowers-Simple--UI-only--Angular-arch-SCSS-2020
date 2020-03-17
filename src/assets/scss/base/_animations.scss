@@ -1,0 +1,13 @@
+@keyframes down {
+  0% {
+    transform: translatey(-.3rem);
+  }
+
+  50% {
+    transform: translatey(.3rem);
+  }
+
+  100% {
+    transform: translatey(-.3rem);
+  }
+}

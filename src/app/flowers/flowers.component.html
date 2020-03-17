@@ -1,0 +1,56 @@
+<div class="container">
+  <!------------------------------------------------TITLE & SEARCH & BREADCRUMB-->
+  <app-inner-header class="inner-header"></app-inner-header>
+
+  <!------------------------------------------------Products Filter (Right Side)-->
+
+  <app-filter class="products-filter"></app-filter>
+
+  <!------------------------------------------------Products Grid (Right Side)-->
+  <div class="products-grid">
+    <div class="products-grid__sort">
+      <a class="products-grid__sort-link" title="Sort By">
+    Sort By 
+    <svg class="products-grid__sort-icon">
+      <use xlink:href="/assets/images/sprite.svg#icon-sort"></use>
+    </svg>
+    </a>
+    <!------------------------------DROP DOWN-->
+    <div class="drop-down">
+        <ul class="drop-down__menu">
+            <li class="drop-down__item">
+                <a href="#" class="drop-down__link">Availability</a>
+            </li>
+          
+            <li class="drop-down__item">
+                <a href="#" class="drop-down__link">Low Price To High</a>
+            </li>
+            <li class="drop-down__item">
+                <a href="#" class="drop-down__link">High Price To Low</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+
+    <div class="products">
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+
+      <!-------------- C A R D ------------------>
+      <app-product-card class="products__card"></app-product-card>
+    </div>
+  </div>
+</div>

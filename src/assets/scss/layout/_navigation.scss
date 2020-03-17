@@ -1,0 +1,262 @@
+//---------------------------------------------------MENU CONTAINER
+.navigation {
+  //---------------------------------------NAV
+  &__list {
+    list-style: none;
+    padding: 0 5rem;
+    @include center-el;
+    justify-content: space-around;
+  }
+
+  //---------------------------------------Drop Down NAV
+
+  &__sub-nav {
+    transition: all 0.4s ease-in-out;
+    padding: 3rem 0 1rem;
+    position: absolute;
+    top: 4rem;
+    opacity: 0;
+    min-width: 20rem;
+    visibility: hidden;
+    animation-fill-mode: backwards;
+  }
+
+  &__sub-list {
+    list-style: none;
+    background-color: $white;
+    box-shadow: 0 0.3rem 0.6rem rgba($black, 15%);
+    border-top: 0.5rem solid $color-primary;
+  }
+
+  //---------------------------------------NAV and Drop Down Nav LINKS
+  &__link,
+  &__link:link,
+  &__link:visited,
+  &__sub-link,
+  &__sub-link:link,
+  &__sub-link:visited {
+    color: $color-gray-dark;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    transition: all 0.5s ease-in-out;
+    display: block;
+    text-align: center;
+    position: relative;
+
+    //--------------------------------------Arrow down for sub menu
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+      vertical-align: bottom;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  &__sub-link,
+  &__sub-link:link,
+  &__sub-link:visited {
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid $color-gray-lighter;
+    text-align: left;
+    background-image: linear-gradient(120deg, transparent 0, transparent 50%, $color-primary 50%);
+    background-size: 220%;
+    svg {
+      height: 2.5rem;
+      width: 2.5rem;
+      vertical-align: bottom;
+      transition: all 0.5s ease-in-out;
+      padding-right: 1rem;
+    }
+  }
+
+  //--------------------------------------Nav hover and active
+  &__link:hover,
+  &__link.active,
+  &__sub-link:hover,
+  &__sub-link.active {
+    color: $color-primary;
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+
+  &__sub-link:hover,
+  &__sub-link:active {
+    background-position: 100%;
+    color: $white;
+    transform: translateX(0.5rem);
+    box-shadow: 0 0.6rem 0.7rem rgba($black, 15%);
+    border: none;
+    svg {
+      fill: $white;
+    }
+  }
+
+  &__item:hover &__sub-nav {
+    opacity: 1;
+    top: 4rem;
+    visibility: visible;
+  }
+
+  //--------------------------------------Media Query (Responsive)
+  @include responsive(tab-port) {
+    display: none;
+  }
+}
+
+//--------------------------------------------R E S P O N S I V E   M E N U-------------------------------
+.nav-res {
+  display: none;
+  @include responsive(tab-port) {
+    display: block;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+  //--------------------------------------Menu Button
+  &__btn {
+    background-color: $white;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 4.3rem;
+    right: 0.5rem;
+    z-index: 210;
+    border-radius: 50%;
+    cursor: pointer;
+    @include center-el;
+
+    &__icon {
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      background-color: $color-gray;
+      border-radius: 0.3rem;
+      position: relative;
+
+      &::after,
+      &::before {
+        @include after-before;
+        width: 2rem;
+        background-color: $color-gray;
+        transition: all 0.4s;
+      }
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+    }
+
+    &:hover &__icon::before {
+      top: -0.9rem;
+    }
+
+    &:hover &__icon::after {
+      top: 0.9rem;
+    }
+  }
+  //--------------------------------------Full  Background
+  &__bg {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 4.4rem;
+    right: 1rem;
+    background-image: radial-gradient($color-primary-light, $color-primary);
+    z-index: 200;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    animation-fill-mode: backwards;
+  }
+
+  //-------------------------------------- Full Page Menu
+  &__checkbox:checked ~ &__bg {
+    transform: scale(500);
+  }
+
+  &__checkbox:checked ~ &__menu {
+    opacity: 1;
+    z-index: 205;
+    width: 100vw;
+  }
+
+  &__checkbox:checked ~ &__btn {
+    box-shadow: 0 0.3rem 0.6rem rgba($black, 15%);
+    right: 2rem;
+  }
+
+  &__checkbox:checked + &__btn &__btn__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__btn &__btn__icon::before {
+    width: 2.5rem;
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  &__checkbox:checked + &__btn &__btn__icon::after {
+    width: 2.5rem;
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  //-------------------------------------- NAV Links
+  &__menu {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 0;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    backface-visibility: hidden;
+  }
+
+  &__list {
+    @include center-el;
+    flex-direction: column;
+    height: 100%;
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: block;
+      font-size: 3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: $white;
+      padding: 0.5rem 1rem;
+      background-image: linear-gradient(120deg, transparent 0, transparent 50%, $white 50%);
+      background-size: 220%;
+      transition: all 0.4s;
+      backface-visibility: hidden;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+    //----------------------------------------------Link Number
+    span {
+      margin-right: 1rem;
+      display: inline-block;
+    }
+  }
+}
+

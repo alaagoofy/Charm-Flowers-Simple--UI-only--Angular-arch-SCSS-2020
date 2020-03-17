@@ -1,0 +1,243 @@
+//-------------------------------------Checkout Page
+.checkout {
+  grid-column: center-start / center-end;
+  @include main-grid;
+  gap: 3rem;
+  //-------------------------------------Secure Checkout
+  &__secure {
+    grid-row: 1/2;
+    grid-column: col-start 5 / full-end;
+    justify-self: end;
+    align-self: start;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    @include center-el;
+    justify-content: space-around;
+
+    @include responsive(phone) {
+      grid-column: full-start / full-end;
+      justify-self: start;
+    }
+    strong {
+      display: inline-block;
+      padding-left: 1rem;
+    }
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  //-------------------------------------Top Tabs
+  &__tabs {
+    grid-row: 1/2;
+    grid-column: full-start / full-end;
+    border-bottom: 1px solid $color-gray-light;
+    padding: 1.2rem 0;
+
+    @include responsive(phone) {
+      grid-column: full-start / full-end;
+      grid-row: 2/3;
+    }
+    
+    &-tab {
+      padding: 1.4rem 3rem;
+      font-size: 1.4rem;
+      color: $color-gray-dark;
+      text-transform: uppercase;
+      transition: all 0.4 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active {
+        background-color: $color-gray-dark;
+        color: $white;
+      }
+    }
+  }
+
+  //-------------------------------------FORM BODY (Left Side)
+  &__form {
+    grid-column: full-start / col-end 6;
+    @include responsive(phone) {
+      grid-column: full-start / full-end;
+    }
+
+    &__payment {
+
+      .form-two-input {
+        grid-template-rows: 5rem;
+      }
+    }
+
+    .head-6 {
+      margin-top: 2rem;
+      font-weight: 400;
+      color: $color-gray-dark;
+    }
+  }
+
+  //-------------------------------------Shopping Cart (Right Side)
+  &__bag {
+    grid-column: col-start 7 / full-end;
+    box-shadow: $shadow;
+    padding: 2rem;
+    border-radius: 0.3rem;
+    align-self: start;
+    @include responsive(phone) {
+      grid-column: full-start / full-end;
+    }
+    //-------------------------------------Cart ITEMS
+    &__items {
+      margin: 1rem 0;
+      border-top: 1px solid $color-gray-light;
+    }
+    //-------------------------------------Cart Item
+    &__item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: repeat(3, min-content);
+      padding: 2rem 0;
+      border-bottom: 1px solid $color-gray-light;
+      gap: 1rem;
+      align-items: start;
+
+      //-------------Item Image
+      &-image {
+        grid-row: 1/-1;
+        grid-column: 1/2;
+        height: 10rem;
+        box-shadow: $shadow;
+        border-radius: 0.3rem;
+      }
+
+      //-------------Item Title
+      &-title {
+        grid-row: 1/2;
+        grid-column: 2/-1;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+      }
+
+      //---------------------------------------------Item Quantity
+      &__quantity {
+        grid-row: 3/4;
+        grid-column: 2/3;
+        align-self: flex-end;
+        &__btns {
+          background-color: $white;
+          width: 8rem;
+          height: 3rem;
+          @include center-el;
+          position: relative;
+
+          &--min,
+          &--plus {
+            width: 1.5rem;
+            height: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &::before {
+              @include after-before;
+              width: 1rem;
+              height: 1px;
+              top: 1.5rem;
+              left: 1rem;
+              background-color: $color-gray;
+            }
+          }
+
+          &--plus {
+            right: 0;
+            left: auto;
+            &::before {
+              right: 1rem;
+              left: auto;
+            }
+            &::after {
+              @include after-before;
+              width: 1rem;
+              height: 1px;
+              top: 1.5rem;
+              left: -0.5rem;
+              background-color: $color-gray;
+              transform: rotate(90deg);
+            }
+          }
+        }
+        &__input {
+          border: 1px solid $color-gray-light;
+          background-color: $white;
+          height: 3rem;
+          text-align: center;
+          width: 8rem;
+          -webkit-appearance: none;
+          transition: all 0.8s;
+
+          //-----------------------------------Clear Broser History Background
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+          }
+
+          &:focus {
+            outline: none;
+            border-bottom: 1px solid $color-gray;
+          }
+
+          //-----------------------------------Invalid Input
+          &:focus:invalid {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid red;
+          }
+        }
+      }
+    }
+
+    //-------------Item Prices
+    &__sub-total,
+    &__total {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, min-content);
+      align-items: center;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: $color-gray;
+      padding: 1rem 0;
+      border-bottom: 1px solid $color-gray-light;
+      &-text {
+        grid-row: 1/2;
+        grid-column: 1/2;
+      }
+
+      &-price {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        justify-self: end;
+      }
+
+      &-info {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        font-size: 1.1rem;
+        color: $black;
+      }
+    }
+
+    //-------------Item Price Total
+    &__total {
+      color: $color-gray-dark;
+      font-weight: 600;
+      border: none;
+      &-price {
+        font-size: 2rem;
+      }
+    }
+  }
+}

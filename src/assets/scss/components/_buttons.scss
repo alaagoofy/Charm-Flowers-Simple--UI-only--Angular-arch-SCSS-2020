@@ -1,0 +1,154 @@
+//----------------------------------------------------Main Button
+.btn {
+  display: inline-block;
+  padding: 0.7rem 3.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.3rem 0.6rem rgba($black, 10%);
+  transition: all 0.6s ease-in;
+  backface-visibility: hidden;
+  position: relative;
+  text-transform: uppercase;
+  color: $white;
+
+  //----------------------------------------------------Pseudo Button classes for hover effect
+  &::after {
+    @include after-before;
+    display: inline-block;
+    z-index: -1;
+    border-radius: 0.4rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.5rem 0.6rem rgba($black, 15%);
+    &::after {
+      transform: scaleX(1.2) scaleY(1.4);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.4rem 0.6rem rgba($black, 15%);
+  }
+
+  //----------------------------------------------------Pink Button
+  &--primary {
+    background-color: $color-primary;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  //----------------------------------------------------Black Button
+  &--black {
+    background-color: $black;
+    font-size: 1.1rem;
+    &::after {
+      background-color: $black;
+    }
+  }
+
+  //----------------------------------------------------White Button
+  &--white {
+    border-radius: 2rem;
+    background-color: $white;
+    color: $color-primary;
+    padding: 0.8rem 2rem;
+
+    &::after {
+      background-color: $white;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+    }
+  }
+
+  //----------------------------------------------------Button With Icon
+  &__icon {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 0;
+    &-text {
+      padding: 1rem 2.5rem;
+    }
+
+    &-box {
+      @include center-el;
+      background-color: $color-gray-lighter;
+      padding: 1rem;
+     
+      svg {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-gray;
+      }
+    }
+
+    &--black &-text {
+      display: block;
+      text-align: center;
+      background-color: $color-gray-dark;
+      &::after {
+        background-color: $color-gray-dark;
+      }
+    }
+
+    &--gray &-text {
+      display: block;
+      text-align: center;
+      background-color: $color-gray-light;
+      color: $color-gray-dark;
+    }
+    &::after {
+      background-color: $color-gray-light;
+    }
+  }
+
+  //----------------------------------------------------Default Button
+
+  &--default {
+    color: $color-gray-dark;
+    border: 1px solid $color-gray;
+    padding: 0.5rem 1rem;
+    @include center-el;
+   
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 0.7rem;
+    }
+    &:hover {
+      background-color: $color-primary;
+      border: 1px solid $color-primary;
+      color: $white;
+      &::after {
+        background-color: $color-primary;
+      }
+      svg {
+       fill: $white;
+      }
+    }
+  }
+
+  &__delete-icon {
+    color: brown;
+    display: inline-block;
+    margin-right: 0.7rem;
+  
+  }
+  &:hover &__delete-icon {
+    color: $white;
+  }
+}
+
+.btns {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  .btn:last-child {
+    margin-left: 2.5rem;
+  }
+}

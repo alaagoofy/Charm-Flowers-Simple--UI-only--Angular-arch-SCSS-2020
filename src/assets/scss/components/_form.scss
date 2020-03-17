@@ -1,0 +1,214 @@
+//-----------------------------------FORMS
+.form {
+  &__group {
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  //-----------------------------------TEXT INPUT AND SELECT (DROP-DOWN)
+  &__input,
+  &__dropdown {
+    padding: 1.2rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    color: $color-gray-dark;
+    border: none;
+    background-color: $white;
+    box-shadow: 0 0.3rem 0.6rem rgba($black, 30%);
+    border-bottom: 1px solid transparent;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    transition: all 0.8s;
+
+    //-----------------------------------Clear Broser History Background
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $color-gray;
+    }
+
+    //-----------------------------------Invalid Input
+    &:focus:invalid {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid red;
+    }
+
+    //-----------------------------------Input Placeholder
+    &::-webkit-input-placeholder {
+      text-transform: uppercase;
+      color: $color-gray;
+      font-weight: 300;
+    }
+
+    &--date {
+      width: 5rem;
+      height: 3rem;
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      @include center-el;
+      border-left: 1px solid $color-gray-lighter;
+      &-icon {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-gray-light;
+      }
+    }
+  }
+
+  //-----------------------------------Drop Down
+  &__dropdown {
+    text-transform: uppercase;
+    background: $white url(/assets/images/SVG/keyboard_arrow_down.svg) no-repeat 98% center;
+    color: $color-gray;
+
+    option {
+      font-size: 1.2rem;
+    }
+  }
+
+  //-----------------------------------Label Of Input
+  //------Input Label
+  &__label {
+    display: block;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin: 0.5rem 0.2rem 0.7rem 0;
+    font-size: 1.2rem;
+    &__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  //------input Label Hidden if Placeholder shown
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4.5rem);
+  }
+
+  //-----------------------------------Checkbox INPUT
+
+  &__checkbox {
+    margin-bottom: 0;
+
+    //-----------------------------------Hide Real Checkbox
+    &-input {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    //-----------------------------------Checkbox Text
+    &-label {
+      position: relative;
+      display: inline-block;
+      padding-left: 2.9rem;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      vertical-align: top;
+      &__icon {
+        width: 5.5rem;
+        height: 5.5rem;
+        padding: 0.5rem;
+        transform: translateY(-1.5rem);
+      }
+    }
+    //-----------------------------------Fake Checkbox
+    &-btn {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      top: 0.1rem;
+      left: 0;
+      border: 1px solid $color-gray-light;
+      border-radius: 0.3rem;
+      //-----------------------------------RADIO BUTTON
+
+      //-----------------------------------Fake Checkbox Checked Style (Hidden)
+      &::before,
+      &::after {
+        @include after-before;
+        visibility: hidden;
+        border-radius: 0.4rem;
+      }
+      &::after {
+        height: 1.2rem;
+        width: 0.5rem;
+        transform: rotate(45deg);
+        top: 0.2rem;
+        left: 0.7rem;
+        border-bottom: 0.2rem solid $white;
+        border-right: 0.2rem solid $white;
+      }
+      &::before {
+        background-color: $color-primary;
+      }
+      &--radio,
+      &--radio::before {
+        border-radius: 50%;
+      }
+    }
+
+    &-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    //-----------------------------------Fake Checkbox Checked (SHOWN)
+    &-input:checked ~ &-label &-btn::before,
+    &-input:checked ~ &-label &-btn::after {
+      visibility: visible;
+    }
+
+    &-input:checked ~ &-label &-btn {
+      border: 1px solid transparent;
+      width: 2.1rem;
+      height: 2.1rem;
+    }
+  }
+}
+
+//-----------------------------------Grid for 2 inputs in row
+.form-two-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+
+  @include responsive(phone) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+//-----------------------------------Grid for 3 inputs in row
+.form-three-input {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content;
+  margin-top: 3rem;
+  gap: 1.5rem;
+  &--small {
+    grid-template-columns: 30% 20% 10%;
+    margin-top: -1rem;
+  }
+  @include responsive(phone) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.form-payment {
+  background-color: $off-white;
+  padding: 2.5rem;
+  border-radius: 0.3rem;
+}

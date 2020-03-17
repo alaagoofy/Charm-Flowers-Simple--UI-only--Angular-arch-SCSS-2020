@@ -1,0 +1,102 @@
+//-----------------------------------ZOOM SLIDER (RIGHT SIDE)
+.zoom-slider {
+  grid-column: center-start / col-end 4;
+
+  //-----------------------------------Responsive
+  @include responsive(tab-port) {
+    grid-column: center-start / center-end;
+  }
+}
+
+//-----------------------------------PRODUCT INFO (LEFT SIDE)
+.product-info {
+  grid-column: col-start 5 / center-end;
+  padding-left: 3rem;
+  //-----------------------------------Responsive
+  @include responsive(tab-port) {
+    grid-column: center-start / center-end;
+    padding-left: 0;
+  }
+  &__title {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+  }
+
+  &__des {
+    font-size: 1.3rem;
+    color: $color-gray;
+    margin-bottom: 1rem;
+  }
+
+  &__delivery {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-gray-light;
+    &-title {
+      color: $color-gray-dark;
+      text-transform: uppercase;
+    }
+
+    &-info {
+      color: $color-gray-dark;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__total {
+    padding-top: 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    color: $color-gray;
+    span {
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: $color-gray-dark;
+    }
+  }
+
+  &__note {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  &__footer {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid $color-gray-light;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 7rem;
+    justify-content: center;
+    @include responsive(phone) {
+      grid-template-columns: 1fr;
+    }
+    &__box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid $color-gray-light;
+      color: $color-gray;
+      @include responsive(phone) {
+        border-bottom: 1px solid $color-gray-light;
+        padding: 1.5rem 0;
+      }
+      &:last-child {
+        border: none;
+      }
+
+      &-title {
+        font-size: 1.4rem;
+      }
+      &-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $color-gray-dark;
+      }
+    }
+  }
+}
