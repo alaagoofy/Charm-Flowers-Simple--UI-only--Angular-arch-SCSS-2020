@@ -7,7 +7,7 @@
 * 7-1 Scss Architecture.
 
 # Watch Demo
-https://alaagoofy.github.io/charm-flowers/
+https://alaagoofy.github.io/Charm-Flowers-Simple--UI-only--Angular-arch-SCSS-2020/
 
 Full project soon
 
